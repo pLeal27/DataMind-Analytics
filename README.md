@@ -14,12 +14,12 @@ O objetivo do projeto é transformar dados brutos de votação e perfil de eleit
 
 ## Integrantes
 
-Beatriz Benites Maria - Analista de BI
-Caio Crestane Delgado - Engenheiro de dados
-Gustavo Nobre da Sila - Analista de dados
-João Pedro Souza de Oliveira - Analista de dados
-Julio de Oliveira Salvarani - Scrum Master
-Pedro Henrique Ferreira Leal - Engenheiro de dados
+Beatriz Benites Maria - Analista de BI <br>
+Caio Crestane Delgado - Engenheiro de dados <br>
+Gustavo Nobre da Sila - Analista de dados <br>
+João Pedro Souza de Oliveira - Analista de dados <br>
+Julio de Oliveira Salvarani - Scrum Master <br>
+Pedro Henrique Ferreira Leal - Engenheiro de dados <br>
 
 
 
