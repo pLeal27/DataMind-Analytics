@@ -12,4 +12,4 @@ Base de dados extraída do TSE contendo o cruzamento de comparecimento e absten�
 
 ### 🎯 Aplicação no Projeto e Responder:
 * **Pergunta Estratégica 4:** Mapeamento e comparação da distribuição do eleitorado jovem nos distritos urbanos (Manaus) versus no Interior do AM[cite: 1].
-* **KPI 4:** Métrica de Densidade do Eleitorado Jovem / Instruído[cite: 1].
+* **KPI 4:** Métrica de Densidade do Eleitorado Jovem / Instruído.
