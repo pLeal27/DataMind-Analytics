@@ -6,6 +6,7 @@ Base de dados extraída do TSE contendo o cruzamento de comparecimento e absten�
 * **Faixa etária:** com foco nos jovens de 16 a 24 anos
 * **Gênero / Sexo**
 * **Grau de instrução**
+* **Turno**
 * **Totais de eleitores aptos, comparecimento e abstenção por localidade**
 
 ---
