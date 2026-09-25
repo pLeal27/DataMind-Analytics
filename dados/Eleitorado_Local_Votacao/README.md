@@ -1,7 +1,6 @@
-Eleitorado_Local_Votacao_PT1 - 2012 -> 2018
-Eleitorado_Local_Votacao_PT1 - 2020 -> 2026
-
-
+Eleitorado_Local_Votacao_PT1 - 2012 -> 2018<br>
+Eleitorado_Local_Votacao_PT2 - 2020 -> 2026<br>
+<br>
 | Variável | Descrição |
 | :--- | :--- |
 | `DT_GERACAO` | Data da extração dos dados para geração do arquivo.[cite: 2] |
