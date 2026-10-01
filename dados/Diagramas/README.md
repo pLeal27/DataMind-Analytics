@@ -15,6 +15,6 @@ Diagramas/
 
 ## Imagem do Estado Atual do Banco
 
-![diagrama v1](imagens\img-dbdiagramav1.png)
+![diagrama v1](imagens\img-dbdiagramav2.png)
 
 ---
