@@ -1,15 +1,11 @@
 ```
 Diagramas/
+├── dbml/
+│   └── Vn.dbml # script de criação do diagrama na plataforma dbdiagram.io
 ├── DDL/
-│   ├── DataMind-Analitics.sql # sentenças das criação de tabelas 
-├── imagens/
-│   ├── img-dbdiagramvn.png # as imagens dos diagramas em MER
-├── V1/ 
-|   ├── V1.dbml
-├── V2/ 
-|   ├── V2.dbml
-└── Vn/ # representão as versões que o diagrama teve ao decorrer do seu tempo de desenvolvimento
-    └── Vn.dbml 
+│   └── DataMind-Analitics.sql # sentenças das criação de tabelas 
+└── imagens/
+    └── img-dbdiagrama.png # imagem do diagrama atual
 ```
 
 
