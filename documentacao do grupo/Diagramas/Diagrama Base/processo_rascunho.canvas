@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"9458bc29c77da071","type":"text","text":"``DIM_CANDIDATOS``\n\nSQ_CANDIDATOS (PK)\nNM_CANDIDATO\nNR_PARTIDO\nNM_PARTIDO\nNR_TURNO\nANO_ELEICAO","x":-461,"y":361,"width":250,"height":219},
+		{"id":"dd73fb9fdb4d6463","type":"text","text":"``DIM_LOCALVOTACAO``\n\nSK_SESSAO\nLOCAL_VOTACAO\nREGIAO\nLOCAL\nMUNICIPIO\nIDHM_MUNICIPIO\nTIPOLOCAL (PERIFE, CENTRO)","x":227,"y":347,"width":250,"height":273},
+		{"id":"f7e4bfba24b23c01","type":"text","text":"``FATO_VOTOS``\n\nSQ_CANDIDATO  (PK FK)\nSK_MUNIPIO (PK FK)\nVOTOS_PORSESSÃO_nominal \nVOTOS_NULOS+BRANCOS_PORSESSÃO\nVOTOS_FAIXAETARIA_PORSESSÃO\nVOTOS_PORCANDIDATO_PORSESSÃO\n","x":-160,"y":-20,"width":375,"height":240},
+		{"id":"37d795f9ec485e02","type":"text","text":"(consulta_cand)\n\nSQ_CANDIDATOS (PK)\nNM_CANDIDATO\nNR_PARTIDO\nNM_PARTIDO\nNR_TURNO\nANO_ELEICAO","x":-747,"y":361,"width":250,"height":219,"color":"1"},
+		{"id":"352a5406b0ece9e4","type":"text","text":"\n(eleitorado_local_votacao)\nNR_LOCAL_VOTACAO_ORIGINAL ou NM_LOCAL_VOTACAO_ORIGINAL ou DS_ENDERECO_LOCVT_ORIGINAL \nAA_ELEICAO\nNR_LATITUDE\nNR_LONGITUDE\n\n(INMET_N_AM_A101)\n- esse vai ser um pouco mais dificil, vamos considerar os municipios, verificando arquivo a arquivo, se ocorreu chuva no municipio. vamos aplicar a todos os locais que pertencem ao municipio","x":-455,"y":920,"width":840,"height":518,"color":"1"},
+		{"id":"94e9db806853e1cc","type":"text","text":"(eleitorado_local_votacao) {talvez ocorra um erro e tenha que ser a original}\n\nNR_SECAO PK \nDS_ENDERECO_LOCVT_ORIGINAL PK  {ou criar surrogate }\nDS_ENDERECO \nNR_ZONA\nNM_BAIRRO\nNM_MUNICIPIO ou  CD_MUNICIPIO\nNR_CEP  { acresci :)}\n(IDHM_por_Municipio_AM)\nIDHM 2010 {levando em conta que só teria para 2010 acho valido tentar repensar a análise ou se tem algum outra métrica possível de usar}","x":520,"y":274,"width":1157,"height":420,"color":"1"},
+		{"id":"7baec41697dee85b","type":"text","text":"(consulta_cand)\nSQ_CANDIDATO PK FK\n\n(perfil_eleitor_secao)\n\nNR_SECAO PK FK\nNM_LOCAL_VOTACAO PK  FK {ou usar surrogate }\n\n(detalhe_votacao_secao)\n\nQT_APTOS\nQT_COMPARECIMENTO\nQT_ABSTENCOES\nQT_VOTOS_NOMINAIS\nQT_VOTOS_BRANCOS\nQT_VOTOS_NULOS\nQT_VOTOS_LEGENDA\nQT_VOTOS_ANULADOS_APU_SEP\n\n(perfil_eleitor_secao_2026_AM)\n\nCD_FAIXA_ETARIA ou DS_FAIXA_ETARIA \n\n^ {aqui vamos que ter  que dar uma olhada, daria para dar join por NR_SECAO + NR_ZONA}\n{ mas a forma que os votos estão contados está diferente, vamos ter que trocar uma ideia}\n","x":-602,"y":-720,"width":1259,"height":600,"color":"1"},
+		{"id":"cfd06b614d7fa8a1","type":"text","text":"`DIM_POSICAOGEOGRAFICA`\n\nLOCAL_VOTACAO\nANO\nLATITUDE\nLONGITUDE\nSOFREU_CHUVA","x":-97,"y":379,"width":250,"height":183}
+	],
+	"edges":[
+		{"id":"f51ef3aaffd0ba48","fromNode":"cfd06b614d7fa8a1","fromSide":"bottom","toNode":"352a5406b0ece9e4","toSide":"top","fromEnd":"arrow"},
+		{"id":"161993250e61e812","fromNode":"9458bc29c77da071","fromSide":"left","toNode":"37d795f9ec485e02","toSide":"right","fromEnd":"arrow"},
+		{"id":"5f7d8e692c7284f2","fromNode":"dd73fb9fdb4d6463","fromSide":"right","toNode":"94e9db806853e1cc","toSide":"left","fromEnd":"arrow"},
+		{"id":"5b91417d8fe7b25d","fromNode":"cfd06b614d7fa8a1","fromSide":"right","toNode":"dd73fb9fdb4d6463","toSide":"bottom","label":"a posicaogeografica deveria implicar onde a pessoa mora, não onde ela vai votar, mas acho que nn temos como saber"},
+		{"id":"9c07ce9590e60029","fromNode":"f7e4bfba24b23c01","fromSide":"top","toNode":"7baec41697dee85b","toSide":"bottom"}
+	]
+}
