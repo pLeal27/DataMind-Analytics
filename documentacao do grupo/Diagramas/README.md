@@ -12,6 +12,6 @@ Diagramas/
 
 ## Imagem do Estado Atual do Banco
 
-![diagrama v2](Visualizacao MER\img-dbdiagramav2.png)
+![diagrama v3](Visualizacao MER\img-dbdiagramav3.png)
 
 ---
