@@ -1,0 +1,100 @@
+// ==========================================
+// DIMENSÕES
+// ==========================================
+
+Table DIM_CANDIDATOS {
+  SQ_CANDIDATOS int [pk, note: 'Chave Primária Surrogate / Negócio']
+  NM_CANDIDATO varchar
+  NR_PARTIDO int
+  NM_PARTIDO varchar
+  NR_TURNO int
+  ANO int [not null]
+}
+
+Table DIM_LOCALVOTACAO {
+  NR_SECAO INT [PK]
+  DS_ENDERECO_LOCVT_ORIGINAL varchar [PK]
+  NM_MUNICIPIO varchar [PK]
+  NR_CEP INT [PK] 
+  DS_ENDERECO varchar
+  NR_ZONA INT
+  NM_BAIRRO varchar
+  ANO INT [not null]
+}
+
+Table DIM_POSICAOGEOGRAFICA {
+  NR_LOCAL_VOTACAO_ORIGINAL INT [PK]
+  ANO INT [not null]
+  NR_LATITUDE float
+  NR_LONGITUDE float
+}
+
+// ==========================================
+// FATOS / TABELAS DE MEDIDAS
+// ==========================================
+ 
+
+Table FATO_VOTOS {
+  SQ_CANDIDATO int [PK, note: 'FK para DIM_CANDIDATOS']
+  NR_SECCAO int [PK, note: 'FK para DIM_LOCALVOTACAO']
+  QT_APTOS INT
+  QT_COMPARECIMENTO INT
+  QT_ABSTENCOES INT
+  QT_VOTOS_NOMINAIS INT
+  QT_VOTOS_BRANCOS INT
+  QT_VOTOS_NULOS INT
+  QT_VOTOS_LEGENDA INT
+  QT_VOTOS_ANULADOS_APU_SEP INT 
+  ANO INT [not null]
+}
+
+Table DIM_IDHMPROX {
+  SK_ID INT [PK]
+  NM_MUNICIPIO varchar [not null]
+  ANO INT [not null]
+  PIB float
+  IDEB_CONSOLIDADO float
+  COBERTURA_AGUA_POTAVEL float
+}
+
+Table DIM_CALENDARIO {
+  ANO INT
+  DIA INT
+  Indexes {
+    (DIA, ANO) [pk]
+  }
+}
+
+Table DIM_QTDE_CHUVA {
+  DIA int
+  ANO int 
+  HORA int
+  PRECIPITAÇÃO_TOTAL_HORA float
+  UMIDADE_RELATIVA_AR FLOAT
+  indexes {
+    (HORA, DIA, ANO) [pk]
+  }
+}
+
+// ========================================== 
+// RELACIONAMENTOS (Star Schema - N:1 / Fato > Dimensão)
+// ==========================================
+ 
+// Ligação da Fato Principal com as Dimensões
+Ref: FATO_VOTOS.SQ_CANDIDATO - DIM_CANDIDATOS.SQ_CANDIDATOS
+Ref: FATO_VOTOS.NR_SECCAO - DIM_LOCALVOTACAO.NR_SECAO
+Ref: FATO_VOTOS.ANO > DIM_CALENDARIO.ANO
+
+// Ligação de Posição Geográfica à Dimensão de Local
+Ref: DIM_LOCALVOTACAO.NR_SECAO - DIM_POSICAOGEOGRAFICA.NR_LOCAL_VOTACAO_ORIGINAL
+Ref: DIM_LOCALVOTACAO.ANO > DIM_CALENDARIO.ANO
+
+
+Ref: DIM_CANDIDATOS.ANO > DIM_CALENDARIO.ANO
+
+Ref: DIM_IDHMPROX.NM_MUNICIPIO > DIM_LOCALVOTACAO.NM_MUNICIPIO
+Ref: DIM_IDHMPROX.ANO > DIM_CALENDARIO.ANO
+
+
+Ref: DIM_QTDE_CHUVA.ANO > DIM_CALENDARIO.ANO
+Ref: DIM_QTDE_CHUVA.DIA > DIM_CALENDARIO.DIA
