@@ -29,25 +29,6 @@ Table DIM_POSICAOGEOGRAFICA {
   NR_LONGITUDE float
 }
 
-// ==========================================
-// FATOS / TABELAS DE MEDIDAS
-// ==========================================
- 
-
-Table FATO_VOTOS {
-  SQ_CANDIDATO int [PK, note: 'FK para DIM_CANDIDATOS']
-  NR_SECCAO int [PK, note: 'FK para DIM_LOCALVOTACAO']
-  QT_APTOS INT
-  QT_COMPARECIMENTO INT
-  QT_ABSTENCOES INT
-  QT_VOTOS_NOMINAIS INT
-  QT_VOTOS_BRANCOS INT
-  QT_VOTOS_NULOS INT
-  QT_VOTOS_LEGENDA INT
-  QT_VOTOS_ANULADOS_APU_SEP INT 
-  ANO INT [not null]
-}
-
 Table DIM_IDHMPROX {
   SK_ID INT [PK]
   NM_MUNICIPIO varchar [not null]
@@ -66,14 +47,36 @@ Table DIM_CALENDARIO {
 }
 
 Table DIM_QTDE_CHUVA {
-  DIA int
-  ANO int 
+  ANO int
+  DIA int 
   HORA int
   PRECIPITAÇÃO_TOTAL_HORA float
   UMIDADE_RELATIVA_AR FLOAT
   indexes {
     (HORA, DIA, ANO) [pk]
   }
+}
+
+// ==========================================
+// FATOS / TABELAS DE MEDIDAS
+// ==========================================
+ 
+
+Table FATO_VOTOS {
+  SQ_CANDIDATO int [PK, note: 'FK para DIM_CANDIDATOS']
+  NR_SECCAO int [PK, note: 'FK para DIM_LOCALVOTACAO']
+  NM_LOCAL_VOTACAO VARCHAR [PK] 
+  QT_APTOS INT
+  QT_COMPARECIMENTO INT
+  QT_ABSTENCOES INT
+  QT_VOTOS_NOMINAIS INT 
+  QT_VOTOS_BRANCOS INT
+  QT_VOTOS_NULOS INT
+  QT_VOTOS_LEGENDA INT
+  QT_VOTOS_ANULADOS_APU_SEP INT 
+  ANO INT [not null]
+  CD_FAIXA_ETARIA INT [not null]
+  DS_FAIXA_ETARIA VARCHAR [not null]
 }
 
 // ========================================== 
@@ -83,6 +86,7 @@ Table DIM_QTDE_CHUVA {
 // Ligação da Fato Principal com as Dimensões
 Ref: FATO_VOTOS.SQ_CANDIDATO - DIM_CANDIDATOS.SQ_CANDIDATOS
 Ref: FATO_VOTOS.NR_SECCAO - DIM_LOCALVOTACAO.NR_SECAO
+Ref: FATO_VOTOS.NM_LOCAL_VOTACAO - DIM_LOCALVOTACAO.DS_ENDERECO_LOCVT_ORIGINAL
 Ref: FATO_VOTOS.ANO > DIM_CALENDARIO.ANO
 
 // Ligação de Posição Geográfica à Dimensão de Local
