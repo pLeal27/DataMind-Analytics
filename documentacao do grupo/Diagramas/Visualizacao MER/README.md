@@ -1,0 +1,138 @@
+## **DIM_CANDIDATOS**
+
+==🔴*PLANILHA*==
+
+consulta_cand
+
+==🟢*COLUNAS*==
+
+SQ_CANDIDATOS
+NM_CANDIDATO
+NR_PARTIDO
+NM_PARTIDO
+NR_TURNO
+ANO_ELEICAO
+
+## **DIM_LOCALVOTACAO**
+
+==🔴*PLANILHA*==
+
+eleitorado_local_votacao
+
+==🟢*COLUNAS*==
+
+  NR_SECAO 
+  DS_ENDERECO_LOCVT_ORIGINAL
+  NM_MUNICIPIO
+  NR_CEP
+  DS_ENDERECO
+  NR_ZONA
+  NM_BAIRRO
+  ANO INT
+
+## **DIM_POSICAOGEOGRAFICA**
+
+==🔴*PLANILHA*==
+
+eleitorado_local_votacao
+
+==🟢*COLUNAS*==
+
+NR_LOCAL_VOTACAO_ORIGINAL 
+ANO
+NR_LATITUDE 
+NR_LONGITUDE
+
+
+## **FATO_VOTOS**
+
+==🔴*PLANILHA*==
+
+(consulta_cand)
+
+==🟢*COLUNAS*==
+
+SQ_CANDIDATO  
+
+==🔴*PLANILHA*==
+
+(perfil_eleitor_secao)
+
+==🟢*COLUNAS*==
+
+NR_SECCAO 
+NM_LOCAL_VOTACAO
+CD_FAIXA_ETARIA 
+DS_FAIXA_ETARIA 
+
+==🔴*PLANILHA*==
+
+(perfil_eleitor_secao)
+
+==🟢*COLUNAS*==
+
+QT_APTOS  
+QT_COMPARECIMENTO  
+QT_ABSTENCOES  
+QT_VOTOS_NOMINAIS  
+QT_VOTOS_BRANCOS  
+QT_VOTOS_NULOS  
+QT_VOTOS_LEGENDA  
+QT_VOTOS_ANULADOS_APU_SEP  
+ANO
+
+## **DIM_IDHMPROX**
+
+==🟡*COLUNAS SEM PLANILHA*==
+
+SK_ID  
+
+==🔴*PLANILHA*==
+
+eleitorado_local_votacao
+
+==🟢*COLUNAS*==
+
+NM_MUNICIPIO 
+
+==🟡*COLUNAS SEM PLANILHA*==
+
+ANO  
+
+==🔴*PLANILHA*==
+
+PIB dos Municípios - base de dados 2010-2023
+
+==🟡*COLUNAS SEM PLANILHA*==
+
+IDEB_Consolidado
+
+ ==🔴*PLANILHA*==
+
+SNIS_2014_2022
+
+==🟢*COLUNAS*==
+
+IN055_AE - Índice de atendimento total de água
+
+## **DIM_CALENDARIO**
+
+==🟡*COLUNAS SEM PLANILHA*==
+
+ANO  
+DIA
+
+## **DIM_QTDE_CHUVA**
+
+
+==🔴*PLANILHA*==
+
+DIM_QTDE_CHUVA
+
+==🟢*COLUNAS*==
+
+DIA  
+ANO  
+HORA  
+PRECIPITAÇÃO_TOTAL_HORA  
+UMIDADE_RELATIVA_AR
