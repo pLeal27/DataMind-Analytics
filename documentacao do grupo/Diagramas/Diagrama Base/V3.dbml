@@ -19,7 +19,6 @@ Table DIM_LOCALVOTACAO {
   DS_ENDERECO varchar
   NR_ZONA INT
   NM_BAIRRO varchar
-  ANO INT [not null]
 }
 
 Table DIM_POSICAOGEOGRAFICA {
@@ -61,7 +60,6 @@ Table DIM_QTDE_CHUVA {
 // FATOS / TABELAS DE MEDIDAS
 // ==========================================
  
-
 Table FATO_VOTOS {
   SQ_CANDIDATO int [PK, note: 'FK para DIM_CANDIDATOS']
   NR_SECCAO int [PK, note: 'FK para DIM_LOCALVOTACAO']
@@ -91,7 +89,6 @@ Ref: FATO_VOTOS.ANO > DIM_CALENDARIO.ANO
 
 // Ligação de Posição Geográfica à Dimensão de Local
 Ref: DIM_LOCALVOTACAO.NR_SECAO - DIM_POSICAOGEOGRAFICA.NR_LOCAL_VOTACAO_ORIGINAL
-Ref: DIM_LOCALVOTACAO.ANO > DIM_CALENDARIO.ANO
 
 
 Ref: DIM_CANDIDATOS.ANO > DIM_CALENDARIO.ANO
