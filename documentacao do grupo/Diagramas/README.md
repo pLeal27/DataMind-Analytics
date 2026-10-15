@@ -12,6 +12,6 @@ Diagramas/
 
 ## Imagem do Estado Atual do Banco
 
-![diagrama v3](Visualizacao%20MER/img-dbdiagramav3.png)
+![diagrama v3](Visualizacao%20MER/datamind-analytics-v3.png)
 
 ---
