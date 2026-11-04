@@ -4,6 +4,7 @@ GO
 USE DataMindAnalytics;
 GO
 
+
 -------------------------------------
 
 CREATE TABLE DIM_CANDIDATOS (
@@ -55,7 +56,7 @@ CREATE TABLE DIM_IDHM_Proxy (
 );
 
 
--- Dimensões calendário
+-- Dimensões calendário -------------------------
 
 CREATE TABLE DIM_ANO (
     ANO INT PRIMARY KEY,

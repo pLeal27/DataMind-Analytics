@@ -1,5 +1,5 @@
-input_file = r"C:\Users\julio\Downloads\bem_formatado.txt"
-output_file = r"C:\Users\julio\Downloads\resultado.sql"
+input_file = r"C:\Users\julio\Downloads\NOTAS_BEM_LIMPAS_seminserts.txt"
+output_file = r"C:\Users\julio\Downloads\NOTAS_BEM_LIMPAS_cominserts.txt"
 
 cabecalho_insert = "INSERT INTO FATO_VOTOS (ANO_ELEICAO, NR_TURNO, CD_MUNICIPIO, NM_MUNICIPIO, NR_ZONA, NR_SECAO, QT_APTOS, QT_COMPARECIMENTO, QT_ABSTENCOES, QT_VOTOS_NOMINAIS, QT_VOTOS_BRANCOS, QT_VOTOS_NULOS, QT_VOTOS_LEGENDA, QT_VOTOS_ANULADOS_APU_SEP, NR_LOCAL_VOTACAO, NM_LOCAL_VOTACAO)\nVALUES"
 

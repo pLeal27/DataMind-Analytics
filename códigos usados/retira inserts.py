@@ -1,6 +1,6 @@
 import re
-input_file = r"C:\Users\julio\Downloads\mal_formatado.txt"
-output_file = r"C:\Users\julio\Downloads\bem_formatado.txt"
+input_file = r"C:\Users\julio\Downloads\NOTAS_BEM_LIMPAS.txt"
+output_file = r"C:\Users\julio\Downloads\NOTAS_BEM_LIMPAS_seminserts.txt"
 
 
 def limpar_arquivo_sql(caminho_entrada, caminho_saida):
