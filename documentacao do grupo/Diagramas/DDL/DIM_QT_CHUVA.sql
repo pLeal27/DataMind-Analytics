@@ -1,15 +1,4 @@
 USE DataMindAnalytics;
-=======
-CREATE TABLE [DIM_QTDE_CHUVA] (
-  [ANO] int,
-  [DIA] int,
-  [HORA] int,
-  [PRECIPITACAO_TOTAL_HORA] float,
-  [UMIDADE_RELATIVA_AR] FLOAT,
-  PRIMARY KEY ([HORA], [DIA], [ANO])
-)
->>>>>>> 31859f997eb8c4a8aa12db3379065a8574cea070:documentacao do grupo/Diagramas/DDL/DIM_QTDE_CHUVA.sql
-GO
 
 -------------------------------------
 
