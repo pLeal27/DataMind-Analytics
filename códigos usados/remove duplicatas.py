@@ -1,7 +1,7 @@
 import re
 
-input_file = r"C:\Users\julio\Downloads\NOTAS_QUALQUER.txt"
-output_file = r"C:\Users\julio\Downloads\NOTAS_BEM_LIMPAS.txt"
+input_file = r"C:\Users\2501054\Desktop\Projeto 4\DataMind-Analytics\documentacao do grupo\Diagramas\DDL\DIM_LOCALVOTACAO.sql"
+output_file = r"C:\Users\2501054\Desktop\Innovation LAB\NOTAS_BEM_LIMPAS.txt"
 
 def obter_chave_estrita(linha):
     linha_limpa = linha.strip()
