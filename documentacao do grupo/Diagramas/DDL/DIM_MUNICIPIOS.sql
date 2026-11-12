@@ -1,3 +1,8 @@
+USE DataMindAnalytics;
+GO
+
+
+
 INSERT INTO DIM_MUNICIPIOS (CD_MUNICIPIO, NM_MUNICIPIO)
 VALUES
 (2895, 'Alvarães'),
