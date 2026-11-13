@@ -193,3 +193,75 @@ VALUES
   ('Uarini', 2022, 3.85, 3.35, 3.0, 17334.73, 97.01),
   ('Urucará', 2022, 5.05, 4.65, 3.35, 11832.79, 99.74),
   ('Urucurituba', 2022, 4.6, 4.3, 3.45, 10979.56, 99.97);
+
+
+USE DataMindAnalytics;
+GO
+
+-- 1. Adiciona as novas colunas na estrutura da tabela
+ALTER TABLE DIM_IDHM_PROXY
+ADD 
+    ESCALA_URBANO_RURAL DECIMAL(5, 4) NULL,
+    FAIXA_URBANO_RURAL  VARCHAR(30) NULL;
+GO
+
+-- 2. Calcula a escala normalizada por ano e atualiza os registros
+-- (Selecione e execute todo este bloco junto, do WITH até o ponto e vírgula do UPDATE)
+WITH BaseIndicadores AS (
+    SELECT 
+        NM_MUNICIPIO,
+        ANO,
+        (0.40 * IDEB_AI + 0.35 * IDEB_AF + 0.25 * IDEB_EM) AS IDEB_COMPOSTO,
+        LOG(PIB_PER_CAPITA) AS LOG_PIB_PC,
+        CASE 
+            WHEN COBERTURA_AGUA > 1.0 THEN COBERTURA_AGUA / 100.0 
+            ELSE NULL 
+        END AS IDX_AGUA
+    FROM DIM_IDHM_PROXY
+),
+NormalizadoPorAno AS (
+    SELECT 
+        *,
+        (IDEB_COMPOSTO - MIN(IDEB_COMPOSTO) OVER (PARTITION BY ANO))
+            / NULLIF(MAX(IDEB_COMPOSTO) OVER (PARTITION BY ANO) - MIN(IDEB_COMPOSTO) OVER (PARTITION BY ANO), 0) AS IDX_EDUCACAO,
+        (LOG_PIB_PC - MIN(LOG_PIB_PC) OVER (PARTITION BY ANO))
+            / NULLIF(MAX(LOG_PIB_PC) OVER (PARTITION BY ANO) - MIN(LOG_PIB_PC) OVER (PARTITION BY ANO), 0) AS IDX_RENDA
+    FROM BaseIndicadores
+),
+ScoreFinal AS (
+    SELECT 
+        NM_MUNICIPIO,
+        ANO,
+        CAST(
+            CASE 
+                WHEN IDX_AGUA IS NOT NULL 
+                    THEN (0.45 * IDX_EDUCACAO) + (0.35 * IDX_RENDA) + (0.20 * IDX_AGUA)
+                ELSE 
+                    (0.55 * IDX_EDUCACAO) + (0.45 * IDX_RENDA)
+            END AS DECIMAL(5, 4)
+        ) AS ESCALA_CALCULADA
+    FROM NormalizadoPorAno
+)
+UPDATE T
+SET 
+    T.ESCALA_URBANO_RURAL = S.ESCALA_CALCULADA,
+    T.FAIXA_URBANO_RURAL  = CASE 
+        WHEN S.ESCALA_CALCULADA >= 0.70 THEN '1 - Polo Urbano'
+        WHEN S.ESCALA_CALCULADA >= 0.50 THEN '2 - Intermediário Urbano'
+        WHEN S.ESCALA_CALCULADA >= 0.35 THEN '3 - Intermediário Rural'
+        ELSE '4 - Rural Profundo'
+    END
+FROM DIM_IDHM_PROXY T
+INNER JOIN ScoreFinal S
+    ON T.NM_MUNICIPIO = S.NM_MUNICIPIO
+   AND T.ANO = S.ANO;
+GO
+
+-- 3. Conferência rápida do resultado
+SELECT
+    NM_MUNICIPIO,
+    ANO, IDEB_AI, IDEB_AF, IDEB_EM,
+    ESCALA_URBANO_RURAL,
+    FAIXA_URBANO_RURAL
+FROM DIM_IDHM_PROXY
+ORDER BY ANO DESC, sESCALA_URBANO_RURAL DESC;
