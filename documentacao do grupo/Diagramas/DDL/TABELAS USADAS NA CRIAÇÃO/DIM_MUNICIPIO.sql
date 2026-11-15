@@ -1,7 +1,6 @@
-USE DataMindAnalytics;
-GO
+USE DataMindAnalyticsNOVA
 
-INSERT INTO DIM_MUNICIPIOS (CD_MUNICIPIO, NM_MUNICIPIO)
+INSERT INTO DIM_MUNICIPIO (CD_MUNICIPIO, NM_MUNICIPIO) 
 VALUES
 (2895, 'Alvarães'),
 (2917, 'Amaturá'),
@@ -65,3 +64,4 @@ VALUES
 (98493, 'Uarini'),
 (2852, 'Urucará'),
 (2879, 'Urucurituba')
+GO
