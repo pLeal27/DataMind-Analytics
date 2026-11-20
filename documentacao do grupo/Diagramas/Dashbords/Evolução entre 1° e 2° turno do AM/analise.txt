@@ -1,0 +1,18 @@
+A análise do desempenho eleitoral no estado do Amazonas permite compreender a trajetória de vários candidatos ao longo das últimas eleições presidenciais, evidenciando o comportamento do eleitorado entre o primeiro e o segundo turno. 
+A partir da visualização comparativa dos dados estaduais, torna-se possível observar tanto a capacidade de retenção dos votos inicialmente conquistados quanto a absorção de novas parcelas do eleitorado na etapa decisiva do pleito, considerando os filtros aplicados de município e partido.
+
+Os resultados demonstram, como já era de se esperar, que o principal polo urbano do estado, Manaus, obtivesse o maior volume absoluto de votos de todos os candidatos, consequentemente a urbe com maior expectativa para se angariar bons resultados no estado, sendo um demonstrativo e motivo de comparação, entre campanhas eleitorais concorrentes ou diacronias (correlatas, porém, em anos diferentes). 
+Essa dinâmica revela em quais ciclos eleitorais houve maior crescimento ou retração na preferência dos eleitores amazonenses, permitindo identificar padrões de consolidação política e transferências de votos de outras legendas na reta final de cada disputa. Por exemplo: Se analisarmos partidos com menor expressão (como PSTU, União Brasil, PV e Avante) o gráfico de Crescimento Absoluto é claro em nos dizer que suas campanhas não demonstraram bons resultados onde se concentra a maior parte do eleitorado amazonense, este que preferiu optar por votar em chapas mais consolidadas como o PT, PSDB (até 2014) e o PL/PSL (pós 2018). 
+E centralizando-se nesses partidos, o gráfico demostra exatamente onde as campanhas eleitorais acertaram, com Manaus novamente demostrando uma grande parcela dos votos, e em centros menores como Parintins e Tabatinga as suas vitorias regionais, também, representam uma parcela a se considerar. 
+E devemos também acrescentar como tendência geral dos candidatos que foram para o 2° turno, um acréscimo percentual do 1° para o 2°, de 13,03%, e outra tendência geral seria a de que as campanhas eleitorais não conseguiram muito adentrar no Amazonas profundo, como em Beruri, Caapiranga, Manaquiri, estes que sempre demonstram uma porcentagem baixa de votos absolutos para todos os candidatos que chegaram ao 2° Turno.
+
+Candidatos que Tiveram maior crescimento percentual entre turnos:
+
+1° Aécio Neves(2014): 69,65% (impulsionado pela baixa votação inicial no estado e pela absorção dos votos de terceiros no 2.º turno)
+2° Fernando Haddad(2018): 17,25%
+3° Dilma Rousseff(2014): 12,56%
+4° Jair Bolsonaro (2018): 9,86%
+---
+
+Por fim, o cruzamento histórico desses indicadores oferece um panorama estratégico sobre a capilaridade e a força de uma campanha com estratégia resoluta e inclusiva em diferentes regiões, distribuindo o foco tanto para grandes centros quando para regiões periféricas. 
+Ao contrastar os desempenhos nos diferentes municípios e pleitos, a análise consolida uma base objetiva para avaliar o nível de competitividade das candidaturas e a estabilidade das bases eleitorais no Amazonas ao longo do tempo.
